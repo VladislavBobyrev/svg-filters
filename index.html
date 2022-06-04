@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FILTER</title>
+  <link rel="shortcut icon" href="src/favicon.ico" type="image/x-icon">
+  <!-- theme-color  -->
+  <meta name="theme-color" content="#c46e89">
+  <meta name="msapplication-navbutton-color" content="#c46e89">
+  <!-- ios theme-color  -->
+  <meta http-equiv="Content-Type" content="application/xhtml+xml">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#c46e89">
+  <link rel="stylesheet" href="src/style/style.css">
+</head>
+<body>
+  <svg>
+    <filter id="filter-one">
+      <feTurbulence type="turbulence" baseFrequency="0.005" numOctaves="5"></feTurbulence>
+      <feDisplacementMap in="SourceGraphic" scale="50"></feDisplacementMap>
+    </filter>
+  </svg>
+
+ 
+  <div class="banner banner-two">
+    <svg>
+      <filter id="filter-two">
+        <feGaussianBlur in="SourceGraphic" stdDeviation="10"/>
+        <feColorMatrix values="
+         1 0 0 0 0
+         0 1 0 0 0
+         0 0 1 0 0
+         0 0 0 20 -10
+        "/>
+      </filter>
+    </svg>
+    <div class="container">
+      <div class="circle circle-one"></div>
+      <div class="circle circle-two"></div>
+    </div>
+  </div>
+  <div class="banner banner-three">
+    <svg>
+      <symbol id="text">
+        <text text-anchor="middle" x="50%" y="60%">FILTER three</text>
+      </symbol>
+      <use xlink:href="#text"></use>
+    </svg>
+  </div>
+  <div class="banner banner-fore">
+    <div class="glass"></div>
+  </div>
+  <div class="banner banner-one"> <h2>FILTER one</h2> </div>
+
+
+  <script>
+    const glass =  document.querySelector('.glass')
+    document.addEventListener('mousemove', (e) => {
+      glass.style.left = e.offsetX + 'px'
+      glass.style.top = e.offsetY + 'px'
+    })
+  </script>
+</body>
+</html>

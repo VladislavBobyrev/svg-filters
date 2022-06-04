@@ -1,0 +1,221 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  display: flex;
+  min-height: -webkit-fill-available;
+  overflow: hidden;
+}
+
+html,
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-y: scroll;
+  -ms-scroll-snap-type: y mandatory;
+      scroll-snap-type: y mandatory;
+  scroll-snap-stop: always;
+}
+
+svg {
+  display: none;
+}
+
+.banner {
+  width: 100vw;
+  height: 90vh;
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 2rem;
+}
+.banner h2 {
+  padding: 3rem;
+  border-radius: 5px;
+  border: 2px solid white;
+}
+
+.banner-one {
+  background: #b42d63;
+}
+
+.banner-two {
+  background: #17181d;
+}
+
+.banner-three {
+  background: #40a42c;
+}
+
+.banner-fore {
+  background: #8ad2cd;
+}
+
+.banner-one {
+  filter: url(#filter-one);
+}
+.banner-one h2 {
+  -webkit-animation: rotate1 6s ease-in-out infinite;
+          animation: rotate1 6s ease-in-out infinite;
+}
+
+@-webkit-keyframes rotate1 {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-360deg);
+  }
+}
+
+@keyframes rotate1 {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-360deg);
+  }
+}
+.container {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  justify-content: space-between;
+  filter: url(#filter-two);
+}
+
+.circle {
+  position: relative;
+  min-width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.circle::before {
+  content: "";
+  position: absolute;
+  top: -2rem;
+  left: -2rem;
+  bottom: -2rem;
+  right: -2rem;
+  border-radius: 50%;
+  filter: blur(50px);
+  z-index: -1;
+}
+
+.circle-one {
+  -webkit-animation: circle1 6s ease-in-out infinite;
+          animation: circle1 6s ease-in-out infinite;
+}
+
+.circle-one,
+.circle-one::before {
+  background: linear-gradient(90deg, #f00, #00f);
+}
+
+.circle-two {
+  -webkit-animation: circle2 6s ease-in-out infinite;
+          animation: circle2 6s ease-in-out infinite;
+}
+
+.circle-two,
+.circle-two::before {
+  background: linear-gradient(90deg, #ffed3b, #da00ff);
+}
+
+@-webkit-keyframes circle1 {
+  0%, 100% {
+    transform: translateX(0) rotate(80deg);
+  }
+  50% {
+    transform: translateX(200%) rotate(-470deg);
+  }
+}
+
+@keyframes circle1 {
+  0%, 100% {
+    transform: translateX(0) rotate(80deg);
+  }
+  50% {
+    transform: translateX(200%) rotate(-470deg);
+  }
+}
+@-webkit-keyframes circle2 {
+  0%, 100% {
+    transform: translateX(200%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+}
+@keyframes circle2 {
+  0%, 100% {
+    transform: translateX(200%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+}
+.banner-three {
+  background: url(../favicon.ico);
+}
+.banner-three svg {
+  display: block;
+  width: 100%;
+  height: 10rem;
+}
+.banner-three svg text {
+  font-size: 8rem;
+  fill: rgba(0, 0, 0, 0.4);
+  stroke-width: 2px;
+  stroke: #15d615;
+  stroke-linejoin: round;
+  stroke-dasharray: 4rem;
+  -webkit-animation: banner3 1s ease-in-out infinite;
+          animation: banner3 1s ease-in-out infinite;
+  -webkit-animation-direction: alternate;
+          animation-direction: alternate;
+}
+
+@-webkit-keyframes banner3 {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 10rem;
+  }
+}
+
+@keyframes banner3 {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 10rem;
+  }
+}
+.banner-fore {
+  position: relative;
+  background: url(../morph.png);
+}
+
+.glass {
+  position: absolute;
+  pointer-events: none;
+  width: 20rem;
+  height: 15rem;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 25px 50px rgba(255, 255, 255, 0.4588235294);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+}
